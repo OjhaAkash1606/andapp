@@ -1,0 +1,329 @@
+/* ------  media-query ---------- */
+
+$screen-sm-min : 576px;
+$screen-sm-max : 767px;
+$screen-md-min : 768px;
+$screen-md-max : 991px;
+$screen-lg-min : 992px;
+$screen-lg-max : 1199px;
+$screen-xlg-min: 1200px;
+$screen-xxlg-min: 1400px;
+
+
+@mixin media-breakpoint-lg {
+  @media (min-width: 992px) and (max-width: 1199px)  {
+    @content;  
+  }
+}
+
+@mixin media-breakpoint-md {
+  @media (min-width: 768px) and (max-width: 991px)  {
+    @content;  
+  }
+}
+
+@mixin xxlarge-width {
+  @media (min-width: #{$screen-xxlg-min}) {
+    @content;
+  }
+}
+
+@mixin upto-xxlarge-width {
+  @media (max-width: #{$screen-xxlg-min - 1 }) {
+    @content;
+  }
+}
+
+
+@mixin xlarge-width {
+  @media (min-width: #{$screen-xlg-min}) {
+    @content;
+  }
+}
+
+@mixin large-to-x-large {
+  @media (min-width: #{$screen-lg-min}) and (max-width: #{$screen-xlg-min - 1}) {
+    @content;
+  }
+}
+
+@mixin large-width {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+
+
+@mixin upto-large {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin medium-to-large{
+  @media (min-width: 768px) and (max-width: 991px)  {
+    @content;  
+  }
+}
+
+@mixin medium {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin upto-medium {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin sm-to-medium{
+  @media (min-width: 576px) and (max-width: 767px)  {
+    @content;  
+  }
+}
+
+@mixin small {
+  @media (min-width: #{$screen-sm-min}) {
+    @content; 
+  }
+}
+
+@mixin upto-small {
+  @media (max-width: #{$screen-sm-min - 1}) {
+    @content; 
+  }
+}
+
+
+
+
+/* ------box-shadow opacity ------------*/
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+@if $inset {
+-webkit-box-shadow:inset $left $top $blur $color;
+-moz-box-shadow:inset $left $top $blur $color;
+box-shadow:inset $left $top $blur $color;
+} @else {
+-webkit-box-shadow: $left $top $blur $color;
+-moz-box-shadow: $left $top $blur $color;
+box-shadow: $left $top $blur $color;
+}
+}
+
+
+/* ------Cross browser opacity ------------*/
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+/* ----.faded-text {
+  @include opacity(0.8);
+}
+*/
+
+
+/*----------Quick Gradients------------*/
+
+@mixin background-gradient($start-color, $end-color, $orientation) { 
+    background: $start-color;
+
+    @if $orientation == 'vertical' {
+      background: -webkit-linear-gradient(top, $start-color, $end-color);
+      background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+      background: -webkit-linear-gradient(left, $start-color, $end-color);
+      background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+      background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+      background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+/* ----- 
+.foo {
+  @include background-gradient(red, black, 'vertical');
+}
+------*/
+
+
+/*-------Font Sizes ---------*/
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+/* --- p {
+  @include font-size(14px)
+}
+-----*/
+
+/*-------Clearfix -------*/
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/*------- Centering Elements -------*/
+
+@mixin center($position) {
+  position: absolute;
+  
+  @if $position == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @else if $position == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  }
+  @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+/*------.foo {
+  @include center(both);
+}
+*/
+
+/*------- padding/margin -------*/
+
+$spaceamounts: (5, 10, 15, 20, 25, 30,35,40,45,50,55,60,65,70,75,80,85,90,95,100);
+$sides: (top, bottom, left, right, all);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+
+    @if $side == 'all' {
+      .m#{$space} {
+        margin: #{$space}px !important;
+      }
+
+      .p#{$space} {
+        padding: #{$space}px !important;
+      }
+    } @else {
+      .m#{str-slice($side, 0, 1)}#{$space} {
+        margin-#{$side}: #{$space}px !important;
+      }
+
+      .p#{str-slice($side, 0, 1)}#{$space} {
+        padding-#{$side}: #{$space}px !important;
+      }
+    }
+  }
+}
+
+
+@mixin fontawesome ($size){
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: $size;
+  font-size: inherit;
+  text-rendering: auto;
+}
+
+
+ul,li{ margin:0; padding:0; list-style:none;}
+
+
+.form-control:focus{
+box-shadow:none !important;
+border-color:#d8d8d8 !important;
+}
+a:hover, a:focus {text-decoration:none;}
+
+$whcl:#fff;
+$purplecl:#9e4593;
+$yellowcl:#df9926;
+$bluecl:#0f9ffa;
+$redcl:#c52e2e;
+$violetcl:#4549e2;
+$greycol:#f6f6f6;
+$greycol1:#e6e8ef;
+$whcol:#fff;
+$commongrey:#a2a2a1;
+
+/* Color Variables */
+$pink:#ef3b85;
+$dark:#111;
+$light:#666;
+$white:#fff;
+$bg-gray:#f6f6f6;
+
+/* font Variables */
+$font-lato-r: 'Lato-Regular';
+$font-lato-b: 'Lato-Bold';
+/*$font-lato-b: 'Lato', sans-serif !important;*/
+
+/* other Variables */
+$font-sm:1rem;
+$font-xsm:0.875rem;
+$radius50:50px;
+
+
+
+.purplebg{ background:$purplecl; }
+.purpletext{ color:$purplecl; }
+.yellowbg{ background:$yellowcl; }
+.yellowtext{ color:$yellowcl; }
+.bluebg{ background:$bluecl; }
+.bluetext{ color:$bluecl; }
+.redbg{ background:$redcl; }
+.redtext{ color:$redcl; }
+.violetbg{ background:$violetcl; }
+.violettext{ color:$violetcl; }
+.greybg{ background:$greycol; }
+.greybg1{ background:$greycol1; }
+.greytext{ color:$greycol; }
+.whtext{ color:$whcol;}
+.wh-bg{ background:$whcol;}
+.commongrey{ color:#a2a2a1;}
+.pinktext{ color:$pink;}
+.blcl{ color:#000 !important; }
+
+
+@mixin commonclcss($color, $fontsize, $display ) { 
+color:$color;
+font-size:$fontsize;
+display:$display;
+
+}
+
+@mixin border-box {
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* other Variables */
+$font-sm:1rem;
+$font-15:0.9375rem;
+$font-xsm:0.875rem;
+$radius50:50px;

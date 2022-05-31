@@ -1,0 +1,171 @@
+/* ------  media-query ---------- */
+$screen-xs-max : 575px;
+$screen-sm-min : 576px;
+$screen-sm-max : 767px;
+$screen-md-min : 768px;
+$screen-md-max : 991px;
+$screen-lg-min : 992px;
+$screen-lg-max : 1199px;
+$screen-xl-min : 1200px;
+$screen-xl-max : 1399px;
+$screen-xxl-min : 1400px;
+
+@mixin xxlarge-width {
+  @media (min-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
+
+
+
+@mixin desktop-to-xlarge {
+  @media (min-width: #{$screen-lg-min}) and (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+
+@mixin large-width {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin upto-x-large {
+  @media (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+@mixin upto-large {
+  @media (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+
+@mixin desktop {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+
+@mixin upto-small {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+
+@mixin x-small {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin upto-x-small {
+  @media (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin upto-desktop {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin desktop-large /*992-1199*/ {
+  @media (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin small-desktop /*768 - 992*/ {
+  @media (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+
+
+/* Mixin */
+
+@mixin box-shadow($shadow-value) {
+    -webkit-box-shadow: $shadow-value;
+    -o-box-shadow: $shadow-value;
+    -moz-box-shadow: $shadow-value;
+    -ms-box-shadow: $shadow-value;    
+    box-shadow: $shadow-value;
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;    
+    border-radius: $radius;
+}
+@mixin flex-position($display, $contet, $items) {
+	display: $display;
+	justify-content: $contet;
+	align-items: $items;
+}
+@mixin white-box($padding){
+    padding:$padding;
+    display: block;
+    background-color: #fff;
+    border:1px solid #c6c6c6;
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+    box-shadow:0px 0px 12px 0px rgba(86, 86, 86, 0.27);
+}
+@mixin position($position, $top, $bottom, $left, $right){
+    position: $position;
+    top:$top;
+    bottom: $bottom;
+    left: $left;
+    right:$right;
+}
+@mixin title1($size, $align){
+    font-family: $font-lato-b;
+    font-size:$size;
+    color: #111;
+    text-align: $align;
+    font-weight: 700;
+}
+@mixin btnbox($color, $bgcolor){
+    color:$color;
+    background-color:$bgcolor;
+    border-color: $pink;
+    @include border-radius($radius50);
+    font-size: 16px;
+    padding: 7px 30px;
+    line-height:24px;
+    min-width: 120px;
+}
+@mixin brbox {
+    border: solid 1px #bababa;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: $font-lato-b;
+    @include flex-position(flex, center, center);
+    color:$dark;
+}
+@mixin box-shadow {
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(86, 86, 86, 0.27);
+    box-shadow: 0px 0px 12px 0px rgba(86, 86, 86, 0.27);
+}
+
+@mixin transition{
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}

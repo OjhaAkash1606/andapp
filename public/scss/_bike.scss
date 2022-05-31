@@ -1,0 +1,79 @@
+.bikediv{ 
+  .nav-tabs{ margin-left: 35px; margin-right: 35px;  @include flex-position(flex, center,center); background:$pink; border-radius: 6px; .nav-link{  transition: font-weight .4s ease-in-out;  padding:.8rem 1.5rem; background:transparent; border:0; color:#fff; &.active{ background:transparent; color:#fff; border: 0; position: relative;  transition: font-weight .4s ease-in-out; border:0 !important; 
+ &:after{ content:''; position: absolute; width: calc(100% - 3rem); height:1px; background: #fff; left:1.5rem; bottom:0.8rem;   }
+  }   &:hover, &:focus{  border-color:transparent; font-weight: 400;     }  margin-bottom: 0; } 
+
+  @include  upto-small {
+    margin-left: 15px; margin-right: 15px; 
+  }
+
+}
+
+@include large-width{
+  &.ins-index .w-box { display: flex; flex-direction:column; }
+}
+.fortabheight{ @include large-width{ height:100%; display: flex; flex-direction:column;
+   .tab-content{ display: flex;
+    flex-direction: column;
+    height: 100%;}
+  .tab-pane.active{ height:100%; display: flex;  flex-direction:column; } 
+.bottom-box{ margin-top: auto;}
+
+}  }
+
+
+  }
+
+  .bike-before-plan{ @extend .commoncard-cl; @extend .commontittle; @extend .citylist-cl; @extend .morebtn; @extend .iconlist-cl; @extend .model-list-cl; @extend .variant-list-cl; @extend .Reg-year-list-cl; @extend .forcustom;  @extend .policylist-cl; 
+    .steps{ width: 100%;}
+  .step{ height: 100%; display: flex; flex-direction: column;}
+    .m-width{ max-width: 333px; width: 100%; }
+  } 
+  .bike-planlist-page{
+    .multi-select {
+      @include flex-position(flex, center, center);
+      margin-top:40px;
+      @include upto-medium{
+          flex-direction: column;
+      }
+
+      .form-select{
+          width: auto;
+          margin:0 20px;
+          min-width:250px;
+      }
+      @include upto-medium{
+          .form-select{
+              margin: 10px 20px;
+          }
+          
+      }
+      @include  media-breakpoint-md{
+          flex-direction: column;
+          .form-select{
+              margin: 10px 20px;
+          }
+      }
+
+      .custom-select{ min-width: 240px;}
+  }
+    @extend .planlist-page;
+    }	 
+
+    .bike-premium-breakup{
+      @extend .premium-breakup-extend;
+      }
+
+      .bike-after-plan{ @extend .forcustom;   .proamout{ font-size: 1.25rem;  }  .forpd{ padding: 10px 30px; @include upto-x-small { padding:5px;}  @include upto-small { padding:10px;}  }  
+    
+      @extend .after-plan;
+      @extend .tab-content-detail;
+      h4{ font-size: 1.125rem; font-weight: 700;}
+    }
+
+    .bike-review-n-pay{
+      @extend .review-n-pay;
+
+      .forpd{ padding: 30px; @include upto-x-small { padding:5px;}  @include upto-small { padding:10px;}  }  
+      .proamout{ font-size: 1.25rem;  } 
+    }

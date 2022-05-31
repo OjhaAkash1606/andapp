@@ -1,0 +1,175 @@
+footer {
+    background-color: #282828;
+    padding: 50px 0 0 0;
+    position: relative;
+    z-index: 9;
+
+    /*client css */
+    width: 100%;
+    clear: both;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /*client css end */
+
+    h6 {
+        font-size: 15px;
+        color: #989898;
+    }
+    p {
+        color: #fff;
+        a{
+            color: #fff;
+            &:hover{
+                color: $pink;
+            }
+        }
+    }
+    ul li a {
+        color: #fff;
+        display: block;
+        width: 100%;
+        padding: 2px 0;
+        &:hover {
+            color: #ef3b85;
+        }
+    }
+    .follo-icon{
+        @include flex-position(flex, start, center );
+        a {
+            color: #bebebe;
+            font-size: 19px;
+            padding: 0 20px;
+            &:hover{
+                color: #fff;
+            }
+            &:first-child{
+                 padding-left: 0;
+            }
+        }
+    }
+    .middle-f {
+        border-top: 1px solid #393939;
+        border-bottom: 1px solid #393939;
+        padding: 35px 0 25px 0;
+        margin-top: 19px;
+        h6 {
+            margin-top: 20px;
+        }
+    }
+    h4 {
+        color: #fff;
+        font-family: 'Merriweather', serif;
+        font-weight: 700;
+        font-size:1.25rem;
+    }
+    .footer-bottom {
+        background-color: #282828;
+        padding: 15px 0;
+        @include flex-position(flex, space-between, center );
+        p {
+            margin: 0;
+            font-size: 15px;
+            color: rgba(183, 183, 183, 0.5);
+            a {
+                color: rgba(183, 183, 183, 0.5);
+            }
+        }
+    }
+    @include upto-small{
+        padding: 30px 0 0 0;
+        h4{
+            font-size: 1rem;
+        }
+        .footer-bottom{
+            @include flex-position(flex, center, center );
+            flex-direction: column;
+            p{
+                text-align: center;
+            }
+        }
+    }
+
+    .swal-button--danger {
+        background-color: #ef3b85 !important;
+        color: #fff;
+    }
+
+        .swal-button--danger:hover:enabled {
+            color: #ef3b85 !important;
+            background-color: #fff !important;
+        }
+
+    .custom-file-label {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .btnand {
+        border: 1px solid #ef3b85;
+        border-radius: 50px;
+        background-color: #fff;
+        font-size: 16px;
+        color: #ef3b85;
+        padding: 8px 21px;
+        line-height: 20px;
+        height: 41px;
+    }
+
+        .btnand:hover:enabled {
+            background-color: #ef3b85;
+            color: #fff;
+        }
+
+    .disable-click {
+        pointer-events: none;
+        cursor: not-allowed !important;
+    }
+
+   
+    .f-logo-bottom {
+        width: 100%;
+        display: flex;
+        background-color: #282828;
+        justify-content: center;
+        -ms-flex-pack: center;
+    }
+
+    .f-logo {
+        width: 13%;
+        display: inline-block;
+        align-self: center;
+        color: #fff;
+        padding: 10px;
+    }
+
+        .f-logo a {
+            color: #fff;
+            width: 100%;
+            display: block;
+        }
+
+        .f-logo img {
+            width: 100%;
+        }
+
+    .contact h2 {
+        margin-bottom: 3px !important;
+        font-size: 20px;
+        width: 100%;
+        display: block;
+        margin-top: 40px;
+    }
+
+    .contact p {
+        width: 100%;
+        display: block;
+        max-width: 470px;
+        margin: 0 auto;
+    }
+
+        .contact p a {
+            color: #4a4a4a;
+        }
+}

@@ -1,0 +1,271 @@
+/*
+.top-header{
+  @include flex-position(flex, center, center);
+  min-height:105px;
+  padding: 12px 35px;
+  background-color: #fff;
+  @include upto-medium{
+      flex-direction: column;
+      padding:12px 15px;
+  }
+  .head-left {
+      margin-right: 10px;
+      margin-left: auto;
+
+      @include xlarge-width{
+        margin-right: auto;
+        margin-left: inherit;
+        }      
+  
+  }
+  .logo {
+      @include xlarge-width{
+        margin: 0 auto;
+      }
+      
+      @include xlarge-width{
+      position: absolute;
+      }
+      left: 0;
+      right: 0;
+      width: 123px;
+    
+      img{
+          width: 100%;
+          @include upto-medium{
+              width: 85px;
+          }
+      }
+  }
+  .head-right {
+
+    .dropdown-menu{ padding: 0;}
+    .dropdown-item:focus, .dropdown-item:hover{  background: $pink; color:#fff;}
+
+    @media (min-width: 1200px)
+    {
+        .navbar-collapse{ display: none !important;}
+    }
+
+      @include xlarge-width{
+        margin-left: auto;
+      }
+      
+      .btn-br{
+          margin-left: 6px;
+          min-width: auto;
+      }
+      @include upto-medium{
+          text-align: right;
+          .btn-br{
+              font-size: 0.8rem;
+              padding:8px 22px;
+              margin: 3px 0;
+              height: auto;
+              &:last-child{
+                  margin-top: 12px;
+                  width: 100%;
+              } 
+          }
+ 
+      }
+      .profile-btn{
+          @include flex-position(flex, center, center);
+          color: $dark;
+          .u-photo{
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              background-color: $pink;
+              color: $white;
+              margin-right: 8px;
+              @include flex-position(flex, center, center);
+          }
+          &:hover{
+              text-decoration: underline;
+          }
+      }
+  }
+}
+
+@media (min-width: $screen-sm-min) and (max-width:$screen-sm-max)  {
+.top-header {
+    padding: 12px 15px;
+    min-height: 85px;
+    .logo {
+        left: 15px;
+        right: auto;
+        width: 90px;
+    }
+    .btn-br{
+        padding: 8px 13px;
+        height: auto;
+        font-size: 0.9rem
+    }
+    .head-left {
+        margin-right: 12px;
+        margin-left: auto;
+    }
+}
+}
+@media (min-width:$screen-md-min) and (max-width:$screen-md-max)  {
+    .top-header {
+        padding: 12px 15px;
+        min-height: 85px;
+        .logo {
+            left: 15px;
+            right: auto;
+            width: 90px;
+        }
+        .head-left {
+            margin-right:18px;
+            margin-left: auto;
+        }
+        .head-right {
+            margin-left: 0;
+        }
+    }
+}
+
+@media (min-width: $screen-lg-min) and (max-width:$screen-lg-max)  {
+    .top-header {
+        padding: 12px 15px;
+        min-height: 85px;
+        .logo {
+            left: 15px;
+            right: auto;
+            width: 90px;
+        }
+        .head-left {
+            margin-right:18px;
+            margin-left: auto;
+        }
+        .head-right {
+            margin-left: 0;
+        }
+    }
+}
+*/
+
+/* client header */
+
+.navbar {
+    padding: .5rem 2rem;
+}
+.navbar-light .navbar-nav .nav-item{
+   margin-left:15px;
+}
+.navbar-light .navbar-nav  .nav-link{
+    border: 1px solid #ef3b85;
+    border-radius: 50px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #ef3b85;
+    padding: 8px 21px;
+    line-height: 20px;
+    height: 41px;
+    &:focus{
+        color:#ef3b85;
+    }
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .show  .nav-link{
+    background-color: #ef3b85;
+    color: #fff;
+}
+.navbar-light .navbar-nav .dropdown-toggle::after {
+    content: "\f107";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 14px;
+    font-size: inherit;
+    text-rendering: auto;
+    border: 0;
+    vertical-align: middle;
+}
+.navbar-light .navbar-nav .profile-btn::after{
+    content:none;
+}
+.navbar-light .dropdown-menu{
+    right: 0;
+    left: auto;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px solid #c6c6c6;
+    border-radius: 5px;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(86, 86, 86, 0.27);
+    box-shadow: 0px 0px 12px 0px rgba(86, 86, 86, 0.27);
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(86, 86, 86, 0.17);
+    box-shadow: 3px 3px 5px 0px rgba(86, 86, 86, 0.17);
+}
+.navbar-light .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: -7px;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-bottom: 6px solid #c6c6c6;
+    width: 0;
+    height: 0;
+    z-index:2;
+}
+.navbar-light .dropdown-menu img{
+    margin-right: 5px;
+}
+.dropdown-item:active, .dropdown-item:focus{
+    color: #ef3b85;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+.dropdown-item:focus, .dropdown-item:hover{
+    color:#ef3b85;
+    background-color: #f8f9fa;
+}
+.profile-btn {
+    margin-top: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color:#222222;
+    font-size: 16px;
+}
+.profile-btn:hover{
+    color:#ef3b85;
+}
+.profile-btn .u-photo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #ef3b85;
+    color: #fff;
+    margin-right: 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+@include upto-large {
+    .navbar-brand img{
+        width:80px;
+    }
+    .navbar {
+        padding: .3rem 1rem;
+    }
+    .navbar-light .navbar-nav .nav-item {
+        margin: 8px 0;
+    }
+    .navbar-light .navbar-nav .dropdown-toggle::after{
+        right: 21px;
+        position: absolute;
+        top: 13px;
+    }
+}
+/* end */
